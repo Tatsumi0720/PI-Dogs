@@ -8,15 +8,19 @@ const getTemperament = async () => {
         const tempInfo = await TempApi.data.map((e) => e.temperament);
         const temps = tempInfo.toString().split(",");
 
-        
-        const bdTemp = temps.forEach(async (e) => {
+        temps.forEach(async (e) => {
             await Temperament.findOrCreate({
                 where: {name: e}
             });
         });
 
-        return bdTemp;
+        const allTemp = Temperament.findAll();
+        return allTemp;
     } catch (error) {
         console.log(error);
     }
 }
+
+module.exports = {
+    getTemperament,
+};
