@@ -35,6 +35,7 @@ router.post("/", async (req, res) => {
             weight: exactWeight,
             height: exactHeight,
             image,
+            createDB
         });
 
         let tempsDB = await Temperament.findAll({
