@@ -21,42 +21,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.post("/", async (req, res) => {
-    const { name, life_span, weight, height, image, temperament, createDB } =
-        req.body;
-    try {
-        if (!name || !life_span || !weight || !height || !image || !temperament) {
-            return res.send("Faltan parametros");
-        }
-
-        const findDog = await Dog.findAll({
-            where: { name: name },
-        });
-
-        if (findDog.length != 0) {
-            return res.send("El perro ya existe! ");
-        }
-
-        let dogCreate = await Dog.create({
-            name,
-            life_span,
-            weight,
-            height,
-            image,
-            createDB,
-        });
-
-        let tempDB = await Temperament.findAll({
-            where: { name: temperament },
-        });
-
-        dogCreate.addTemperament(tempDB);
-        res.send("Dog created successfully");
-    } catch (error) {
-        res.status(400).send(error.message);
-    }
-});
-
 router.get("/:id", async (req, res) => {
     const { id } = req.params;
     try {
