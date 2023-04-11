@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
+.bkg {
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20210327/pngtree-cute-dog-tiling-background-green-scattered-paw-image_595781.jpg');
+}
+
+.conta{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #d7e5e9;
+    
+}
+
+.tit{
+    font-size: 2rem;
+    margin: 10px;
+    font-family: 'EB Garamond', serif;
+}
+
+.link{
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #333;
+    transition: all 0.2s ease-in-out;
+}
+
+.link:hover{
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.button{
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.select {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #a8b0dd;
+    color: #333;
+    font-size: 1rem;
+    margin-left: 1rem;
+    margin: 10px;
+}
+
+.cards {
+    padding: auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 25% 25% 25% 25%;
+    gap: 20px;
+}
+
+.paginado {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 15px;
+}
