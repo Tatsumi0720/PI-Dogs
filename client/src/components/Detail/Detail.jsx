@@ -13,7 +13,6 @@ export default function Detail(props) {
         dispatch(getDetail(props.match.params.id));
     }, [dispatch, props.match.params.id]);
 
-
     return (
         <div className={style.bkg}>
             <div className={style.container3}>
