@@ -8,6 +8,7 @@ export const FILTER_CREATED = 'FILTER_CREATED';
 export const ORDER_BY = 'ORDER_BY';
 export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
 export const POST_DOGS = 'POST_DOGS,'
+export const GET_DETAIL = 'GET_DETAIL';
 
 
 export function getAllDogs() {
@@ -109,3 +110,17 @@ export function orderByWeight(payload) {
     }
 
 };
+
+export function getDetail(id) {
+    return async function(dispatch){
+        try {
+                var json = await axios.get(`http://localhost:3001/dogs/${id}`);
+                return dispatch({
+                    type: GET_DETAIL,
+                    payload: json.data
+                })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}

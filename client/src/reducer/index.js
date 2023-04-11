@@ -5,12 +5,14 @@ import {
     FILTER_CREATED, ORDER_BY,
     ORDER_BY_WEIGHT,
     GET_NAME_DOGS,
-    POST_DOGS
+    POST_DOGS,
+    GET_DETAIL
 } from '../actions/index';
 
 const initialState = {
     allDogs: [],
     Dogs: [],
+    detail: [],
     temperament: [],
 }
 
@@ -24,7 +26,6 @@ function rootReducer(state = initialState, action) {
                 Dogs: action.payload
             }
         case GET_ALL_TEMPERAMENTS:
-            console.log(action.payload);
             const filterTemp = action.payload.filter((temp) => temp.name !== "");
             return {
                 ...state,
@@ -33,8 +34,6 @@ function rootReducer(state = initialState, action) {
         case FILTER_BY_TEMPERAMENTS:
             const totalDogs = state.Dogs;
             const tempFilter = action.payload === 'temp' ? totalDogs : totalDogs.filter((e) => e.temperament ? e.temperament.includes(action.payload) : e.temperaments?.map((e) => e.name));
-            console.log(totalDogs);
-            console.log(tempFilter);
             return {
                 ...state,
                 allDogs: tempFilter
@@ -99,14 +98,18 @@ function rootReducer(state = initialState, action) {
                 allDogs: action.payload
             }
         case POST_DOGS:
-            console.log("**");
-            console.log(state);
             return{
                 ...state
             }
-            default:
+        case GET_DETAIL:
+            console.log(action.payload);
+            return{
+                ...state,
+                detail: action.payload,
+            }
+        default:
             return {
-                ...state
+                ...state,
             }
 
     }

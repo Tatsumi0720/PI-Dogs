@@ -86,12 +86,10 @@ export default function Create() {
     };
 
     function handleDelete(e) {
-        if (!input.temperament.includes(e.target.value)) {
             setInput({
                 ...input,
-                temperament: [...input.temperament, e.target.value]
+                temperament: input.temperament.filter(el => el !== e.target.value)
             });
-        };
     }
 
     return (
@@ -169,8 +167,9 @@ export default function Create() {
                         {
                             input.temperament?.map(el => (
                                 <ul className={style.ul}>
+                                    <h5>{el}</h5>
                                     <button type="button" key={el} value={el} onClick={(e) => handleDelete(e)}>
-                                        {el}
+                                        X
                                     </button>
                                 </ul>
                             ))
